@@ -1,11 +1,133 @@
-# VOID-SKIPPER #42 NFT
+# Documentation - NFTs & ERC721
 
-### Utility of NFT
+## About TokenizeArt
+
+**TokenizeArt** is a collection of 42 unique NFTs that serve as **access passes** to a video game.
+
+Each NFT represents:
+- **Proof of access** to the game
+- **Ownership** recorded on the blockchain
+- **Transferable asset** - can be sold or gifted
+- **Immutable record** - permanent on Ethereum
+
+The contract follows the **ERC721 standard**, which is the official standard for NFTs on Ethereum.
+
+---
+
+## ERC721 Standard
+
+ERC721 is the **official standard** for NFTs on Ethereum, defined in [EIP-721](https://eips.ethereum.org/EIPS/eip-721).
+
+### Main Functions
+
+| Function | Purpose |
+|----------|---------|
+| `balanceOf(address owner)` | Number of NFTs owned |
+| `ownerOf(uint256 tokenId)` | Owner of a token |
+| `transferFrom(from, to, id)` | Transfer a token |
+| `safeTransferFrom(from, to, id)` | Safely transfer a token (recommended) |
+| `approve(to, tokenId)` | Authorize transfer of ONE token |
+| `setApprovalForAll(operator, approved)` | Authorize transfer of ALL tokens |
+| `getApproved(tokenId)` | Check who is approved for this token |
+| `isApprovedForAll(owner, operator)` | Check if approved for all |
+
+### Events
+
+```solidity
+event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
+event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+```
+
+### Key Concept: Approvals
+
+To prevent unauthorized transfers, approvals are required:
+1. **Owner** calls `approve(spender, tokenId)`
+2. **Spender** can then call `transferFrom()` to transfer
+3. This prevents unauthorized transfers
+
+---
+
+## ERC721Metadata Extension
+
+Optional extension that adds metadata.
+
+| Function | Purpose |
+|----------|---------|
+| `name()` | Collection name |
+| `symbol()` | Ticker/symbol (ex: "FISH42") |
+| `tokenURI(tokenId)` | URI pointing to JSON metadata (IPFS) |
+
+### JSON Metadata Structure
+
+```json
+{
+  "name": "The Void-Skipper #42",
+  "description": "NFT Pass - Video Game Access",
+  "image": "ipfs://QmXXXX...",
+  "attributes": [
+    {"trait_type": "Edition", "value": "1/42"}
+  ]
+}
+```
+
+---
+
+## ERC165 - Interface Detection
+
+Standard that allows contracts to declare which interfaces they implement.
+
+| Function | Purpose |
+|----------|---------|
+| `supportsInterface(bytes4 interfaceID)` | Check if contract supports an interface |
+
+Allows dapps to verify: "Is this really an ERC721?"
+
+---
+
+## OpenZeppelin - Secure Implementation
+
+OpenZeppelin provides an audited implementation of ERC721 with helper functions.
+
+| Function | Purpose |
+|----------|---------|
+| `_safeMint(to, tokenId)` | Create a token (secure) ✅ |
+| `_mint(to, tokenId)` | Create a token (no verification) ❌ |
+| `_requireOwned(tokenId)` | Verify token exists |
+
+---
+
+## TokenizeArt Contract - Architecture
+
+### State Variables
+
+| Variable | Purpose |
+|----------|---------|
+| `_baseTokenURI` | IPFS URI for metadata |
+| `_nextTokenId` | Counter of created NFTs (0, 1, 2, ...) |
+| `MAX_SUPPLY` | Limit: 42 tokens |
+
+### Main Functions
+
+| Function | Purpose |
+|----------|---------|
+| `safeMint(to)` | Create 1 NFT for `to` (max 42) |
+| `tokenURI(tokenId)` | Return metadata URI |
+| `totalSupply()` | Number of tokens created |
+| `setBaseURI(newURI)` | Change URI (optional) |
+
+---
+
+## Deployment Addresses
+
+Once deployed on Sepolia Testnet:
+
+| Item | Address |
+|------|---------|
+| Contract Address | `(To be filled after deployment)` |
+| Creator Address | `(Your wallet address)` |
+
+**View on Etherscan:** https://sepolia.etherscan.io/address/`[CONTRACT_ADDRESS]`
 
 
-How to use
-Functions
-...
-
-how to see the NFT, check ownerOf etc
 

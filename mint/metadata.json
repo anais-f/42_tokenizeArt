@@ -1,7 +1,7 @@
 {
   "name": "The Void-Skipper #42",
   "description": "Elite vessel limited to 42 units. Void-Skipper #42 grants exclusive access to restricted zones and special loot drops within the TokenizeArt metaverse.",
-  "image": "ipfs://....",
+  "image": "ipfs://bafybeibbkezn6rxbq3xm2ravykgyop4o3orxyrfkkw2m2pti2v7glq4b3q",
   "attributes": [
     {
       "trait_type": "Artist",
@@ -22,10 +22,6 @@
     {
         "trait_type": "Special Access",
         "value": "Exclusive Zones & Loot"
-    },
-    {
-        "trait_type": "Edition",
-        "value": "1 of 42"
     }
   ]
 }

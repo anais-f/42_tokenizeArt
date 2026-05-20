@@ -91,8 +91,8 @@ OpenZeppelin provides an audited implementation of ERC721 with helper functions.
 
 | Function | Purpose |
 |----------|---------|
-| `_safeMint(to, tokenId)` | Create a token (secure) ✅ |
-| `_mint(to, tokenId)` | Create a token (no verification) ❌ |
+| `_safeMint(to, tokenId)` | Create a token (secure) |
+| `_mint(to, tokenId)` | Create a token (no verification) |
 | `_requireOwned(tokenId)` | Verify token exists |
 
 ---
@@ -128,6 +128,26 @@ Once deployed on Sepolia Testnet:
 | Creator Address | `(Your wallet address)` |
 
 **View on Etherscan:** https://sepolia.etherscan.io/address/`[CONTRACT_ADDRESS]`
+
+---
+
+## IPFS Resources
+
+### Image CID
+
+**CID:** `bafybeibbkezn6rxbq3xm2ravykgyop4o3orxyrfkkw2m2pti2v7glq4b3q`
+
+- [View on Pinata Gateway](https://gateway.pinata.cloud/ipfs/bafybeibbkezn6rxbq3xm2ravykgyop4o3orxyrfkkw2m2pti2v7glq4b3q)
+- [View on IPFS](ipfs://bafybeibbkezn6rxbq3xm2ravykgyop4o3orxyrfkkw2m2pti2v7glq4b3q)
+
+### Metadata JSON CID
+
+**CID:** `bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq`
+
+**URI for Contract:** `ipfs://bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq`
+
+- [View on Pinata Gateway](https://gateway.pinata.cloud/ipfs/bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq)
+- [View on IPFS](ipfs://bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq)
 
 
 

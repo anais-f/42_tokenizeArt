@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenizeArt - Mint NFT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #667eea;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div style="background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); padding: 40px; max-width: 500px; width: 100%;">
+        <h1 style="color: black; text-align: center; margin-bottom: 10px;">The Void-Skipper</h1>
+        <p style="text-align: center; color: grey; margin-bottom: 30px; font-size: 14px;">NFT Minting Platform</p>
+
+        <!-- Wallet Status -->
+        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <div style="color: grey; font-size: 12px; font-weight: bold; margin-bottom: 5px;">WALLET STATUS</div>
+            <div style="color: black; font-size: 14px;" id="walletStatus">Not connected</div>
+        </div>
+
+
+        <!-- Owner Status -->
+        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: none;" id="ownerBox">
+            <div style="color: grey; font-size: 12px; font-weight: bold; margin-bottom: 5px;">Account Role</div>
+            <div style="color: black; font-size: 14px;">Owner ✓</div>
+        </div>
+
+        <!-- Supply Info -->
+        <div style="background: #f5f5f5; padding: 10px; text-align: center; margin-bottom: 20px; border-radius: 8px;">
+            <strong id="supply">0</strong> / 42 minted
+        </div>
+
+        <!-- Buttons -->
+        <div style="display: flex; margin-bottom: 20px;">
+            <button id="connectBtn">Connect Wallet</button>
+            <button id="disconnectBtn" style="display: none;">Disconnect</button>
+        </div>
+
+        <button id="mintBtn" disabled style="width: 100%; margin-bottom: 20px;">Mint NFT</button>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: #999; font-size: 12px; margin-top: 30px;">
+            <p>Network: Sepolia Testnet</p>
+        </div>
+    </div>
+</body>
+</html>

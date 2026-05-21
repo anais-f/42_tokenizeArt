@@ -7,12 +7,12 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Fish42 is ERC721, Ownable {
 
     string private _baseTokenURI;
-    uint256 private _nextTokenId;
+    uint256 private _tokenId;
     uint256 public constant MAX_SUPPLY = 42;
 
     constructor(string memory _baseURI) ERC721("The Void-Skipper #42", "FISH42") Ownable(msg.sender) {
         _baseTokenURI = _baseURI;
-        _nextTokenId = 0;
+        _tokenId = 0;
     }
 
     /**
@@ -20,9 +20,9 @@ contract Fish42 is ERC721, Ownable {
      * @param to The address to which the NFT will be minted.
      */
     function safeMint(address to) public onlyOwner {
-        require(_nextTokenId < MAX_SUPPLY, "Max supply reached");
-        _safeMint(to, _nextTokenId);
-        _nextTokenId++;
+        require(_tokenId < MAX_SUPPLY, "Max supply reached");
+        _safeMint(to, _tokenId);
+        _tokenId++;
     }
 
     /**
@@ -37,18 +37,10 @@ contract Fish42 is ERC721, Ownable {
     }
 
     /**
-     * @dev Sets the base URI for all tokens.
-     * @param newURI The new base URI.
-     */
-    function setBaseURI(string memory newURI) public onlyOwner {
-        _baseTokenURI = newURI;
-    }
-
-    /**
      * @dev Returns the total supply of NFTs.
      * @return The total supply of NFTs.
      */
     function totalSupply() public view returns (uint256) {
-        return _nextTokenId;
+        return _tokenId;
     }
 }

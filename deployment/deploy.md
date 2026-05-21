@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-- IPFS metadata URI (ex: `ipfs://QmXXXX...`)
+- IPFS metadata URI (ex: `ipfs://bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq`)
 - MetaMask connected to **Sepolia Testnet**
-- Testnet ETH (free from [faucet](https://sepoliafaucet.com))
+- Testnet ETH (free from [faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia))
 
 ---
 
@@ -24,8 +24,8 @@
 
 1. In Remix, find `safeMint()` function
 2. Pass your wallet address
-3. Click "transact" × 42 times
-4. Confirm each transaction
+3. Click "transact"
+4. Confirm the transaction
 
 ---
 
@@ -42,8 +42,8 @@
 
 | Item | Value |
 |------|-------|
-| Contract Address | `(To be filled)` |
-| Creator Wallet | `(Your address)` |
-| Etherscan Link | `https://sepolia.etherscan.io/address/...` |
-| Metadata URI | `ipfs://...` |
-
+| Contract Address | `0xCd613D6b6CeF6e0BcD8EBA3207B0acA49e5c1Db9` |
+| Creator Wallet | `0xAE9d88Fbd66e345F0e65e95891bA88A940bA0FE0` |
+| Etherscan Link | `https://sepolia.etherscan.io/address/0xcd613d6b6cef6e0bcd8eba3207b0aca49e5c1db9` |
+| Metadata URI | `ipfs://bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq` |
+| Deployment tx address | `https://sepolia.etherscan.io/tx/0xe40d678e465ed2d3e3f9d839e03676b0bb8264c425e30fdf70f6d9f448a17d6c` |

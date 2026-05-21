@@ -114,7 +114,6 @@ OpenZeppelin provides an audited implementation of ERC721 with helper functions.
 | `safeMint(to)` | Create 1 NFT for `to` (max 42) |
 | `tokenURI(tokenId)` | Return metadata URI |
 | `totalSupply()` | Number of tokens created |
-| `setBaseURI(newURI)` | Change URI (optional) |
 
 ---
 
@@ -124,10 +123,10 @@ Once deployed on Sepolia Testnet:
 
 | Item | Address |
 |------|---------|
-| Contract Address | `(To be filled after deployment)` |
-| Creator Address | `(Your wallet address)` |
+| Contract Address | `0xCd613D6b6CeF6e0BcD8EBA3207B0acA49e5c1Db9` |
+| Creator Address | `0xAE9d88Fbd66e345F0e65e95891bA88A940bA0FE0` |
 
-**View on Etherscan:** https://sepolia.etherscan.io/address/`[CONTRACT_ADDRESS]`
+**View on Etherscan:** https://sepolia.etherscan.io/tx/0xe40d678e465ed2d3e3f9d839e03676b0bb8264c425e30fdf70f6d9f448a17d6c
 
 ---
 

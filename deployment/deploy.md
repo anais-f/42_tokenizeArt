@@ -1,15 +1,5 @@
 # Deployment Guide - The Void-Skipper #42
 
-## Project Overview
-
-**TokenizeArt** is a collection of **42 unique NFTs** serving as exclusive access passes to a video game.
-
-- **Contract Name:** Fish42
-- **Token Standard:** ERC721
-- **Maximum Supply:** 42 NFTs
-- **Network:** Ethereum Sepolia Testnet
-
----
 
 ## Prerequisites
 
@@ -27,7 +17,7 @@
 1. Go to [remix.ethereum.org](https://remix.ethereum.org)
 2. Create a new file named `Fish42.sol`
 3. Copy the contract code from `code/TokenizeArt.sol`
-4. **Compile** the contract (Ctrl+Shift+S or Cmd+Shift+S)
+4. **Compile** the contract 
 5. Go to the **Deploy tab** on the left sidebar
 6. **Network Selection:**
    - Ensure MetaMask is connected to Sepolia Testnet
@@ -36,8 +26,6 @@
    - In the contract deployment section, enter the IPFS baseURI
    - Example: `ipfs://bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq`
 8. Click **"Deploy"** → Confirm transaction in MetaMask
-
-**Result:** Your contract is now deployed on Sepolia Testnet!
 
 ---
 

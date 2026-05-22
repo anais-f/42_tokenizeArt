@@ -36,8 +36,6 @@ Create a file `metadata.json` locally:
 }
 ```
 
-**Replace the image CID with your own!**
-
 ---
 
 ## Step 3: Upload JSON to Pinata

@@ -11,8 +11,18 @@ const ABI = [
     "event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
 ];
 
-const CONTRACT_ADDRESS_ONCHAIN = "0x";
-const ABI_ONCHAIN = [ /* Your Contract ABI On Chain Here */ ];
+const CONTRACT_ADDRESS_ONCHAIN = "0xF241204E292083D614496F0aA791afB85d1809E3";
+const ABI_ONCHAIN = [
+    "function safeMint(address to)",
+    "function totalSupply() view returns (uint256)",
+    "function tokenURI(uint256 tokenId) view returns (string)",
+    "function ownerOf(uint256 tokenId) view returns (address)",
+    "function balanceOf(address owner) view returns (uint256)",
+    "function transferFrom(address from, address to, uint256 tokenId)",
+    "function owner() view returns (address)",
+    "function MAX_SUPPLY() view returns (uint256)",
+    "event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
+];
 
 const CONTRACTS = {
     TokenizeArt: { address: CONTRACT_ADDRESS, abi: ABI },
@@ -109,8 +119,14 @@ connectBtnEl.addEventListener("click", connectWallet);
 mintBtnEl.addEventListener("click", mintNFT);
 contractSelectEl.addEventListener("change", async () => {
     if (signer) {
-        let selected = contractSelectEl.value;
-        contract = new ethers.Contract(CONTRACTS[selected].address, CONTRACTS[selected].abi, signer);
-        await loadContractInfo();
+        try {
+            let selected = contractSelectEl.value;
+            contract = new ethers.Contract(CONTRACTS[selected].address, CONTRACTS[selected].abi, signer);
+            await loadContractInfo();
+        }
+        catch (error) {
+            console.error("Error changing contract:", error);
+            alert("Failed to switch contract. Please try again.");
+        }
     }
 });

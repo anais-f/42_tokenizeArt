@@ -117,7 +117,7 @@ OpenZeppelin provides an audited implementation of ERC721 with helper functions.
 
 ---
 
-## Deployment Addresses
+## Mandatory Deployment Addresses 
 
 Once deployed on Sepolia Testnet:
 
@@ -149,4 +149,36 @@ Once deployed on Sepolia Testnet:
 - [View on IPFS](ipfs://bafkreig5og7bsgc6alvrpowpwz2ihvdcixfhyobgdmtntylpkspbqzozmq)
 
 
+---
 
+## TokenizeArtOnChain - On-Chain Storage
+
+The bonus contract **TokenizeArtOnChain** stores metadata **directly on the blockchain** by encoding it in Base64.
+
+### How it works
+
+Instead of returning an IPFS link, the `tokenURI()` function returns the complete data encoded in Base64. The browser automatically decodes this data to display the image and metadata.
+
+### Advantages
+
+- **100% on-chain** : Data lives eternally on Ethereum
+- **Guaranteed immutability** : Impossible to modify or delete metadata
+- **No external dependency** : Zero risk of data disappearing
+- **True decentralized Web3** : Completely autonomous and secure
+
+### Disadvantages
+
+- **Very expensive** : Costs much more gas at deployment
+- **Bulky contract** : Encoded data takes up a lot of space
+- **Slower** : Requires Base64 decoding
+- **Potential incompatibility** : Some NFT marketplaces may not support it
+
+---
+## Bonus Deployment Addresses (Sepolia Testnet)
+
+| Item | Value |
+|------|-------|
+| **Contract Address** | `0xF241204E292083D614496F0aA791afB85d1809E3` |
+| **Creator Wallet** | `0xAE9d88Fbd66e345F0e65e95891bA88A940bA0FE0` |
+| **Etherscan Link** | [https://sepolia.etherscan.io/address/0xf241204e292083d614496f0aa791afb85d1809e3](https://sepolia.etherscan.io/address/0xf241204e292083d614496f0aa791afb85d1809e3) |
+| **Deployment Tx Hash** | [https://sepolia.etherscan.io/tx/0x186d74ffc0b0eed952043d0dccb910844def3dd9321e9b37b45d57a191575975](https://sepolia.etherscan.io/tx/0x186d74ffc0b0eed952043d0dccb910844def3dd9321e9b37b45d57a191575975) |

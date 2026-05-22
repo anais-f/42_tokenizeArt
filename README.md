@@ -89,3 +89,4 @@ An NFT can represent:
 - [OpenZeppelin ERC721](https://docs.openzeppelin.com/contracts/4.x/erc721)
 - [Remix IDE](https://remix.ethereum.org)
 - [Pinata - IPFS Hosting](https://pinata.cloud)
+- [Ethers](https://docs.ethers.org/v6/)

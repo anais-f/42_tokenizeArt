@@ -1,4 +1,3 @@
-
 const CONTRACT_ADDRESS = "0xCd613D6b6CeF6e0BcD8EBA3207B0acA49e5c1Db9";
 const ABI = [
     "function safeMint(address to)",
@@ -30,7 +29,8 @@ const contractSelectEl = document.getElementById("contractSelect");
 const supplyEl = document.getElementById("supply");
 const connectBtnEl = document.getElementById("connectBtn");
 const mintBtnEl = document.getElementById("mintBtn");
-
+const roleStatusEl = document.getElementById("roleStatus");
+const recipientInputEl = document.getElementById("recipientAddress");
 
 async function connectWallet() {
     if (!window.ethereum) {
@@ -39,24 +39,20 @@ async function connectWallet() {
     }
 
     try {
-        // create the provider via Metamask
+        // Create the provider via Metamask and connect the wallet
         provider = new ethers.BrowserProvider(window.ethereum);
-
-        // popup to connect the wallet
         await provider.send("eth_requestAccounts", []);
 
-        // get the signer (the connected wallet)
+        // Get the signer (the connected wallet)
         signer = await provider.getSigner();
         userAddress = signer.address;
 
-        // instantiate the contract with the signer for read-write operations
+        // Instantiate the contract with the signer for read-write operations
         let selected = contractSelectEl.value;
         contract = new ethers.Contract(CONTRACTS[selected].address, CONTRACTS[selected].abi, signer);
 
-        // update UI
         walletStatusEl.textContent = `Connected: ${userAddress}`;
         connectBtnEl.style.display = "none";
-        mintBtnEl.disabled = false;
 
         await loadContractInfo();
 
@@ -67,24 +63,47 @@ async function connectWallet() {
     }   
 }
 
-
 async function loadContractInfo() {
     try {
+        // Get total supply and max supply from the contract
         const supplyMinted = await contract.totalSupply();
         const maxSupply = await contract.MAX_SUPPLY();
         supplyEl.textContent = `${supplyMinted.toString()} / ${maxSupply.toString()}`;
+
+        // Check if the connected user is the contract owner for enabling minting
+        const contractOwner = await contract.owner();
+        if (userAddress.toLowerCase() === contractOwner.toLowerCase()) {
+            roleStatusEl.textContent = "Contract Owner";
+            mintBtnEl.disabled = false;
+        } else {
+            roleStatusEl.textContent = "Regular User";
+            mintBtnEl.disabled = true;
+        }
     }
     catch (error) {
         console.error("Error loading contract info:", error);
     }
 }
 
-
-
 async function mintNFT() {
-    
-}
+    try {
+        mintBtnEl.disabled = true;
 
+        const recipientAddress = recipientInputEl.value || userAddress;
+        const tx = await contract.safeMint(recipientAddress);
+        await tx.wait();
+        alert("NFT minted successfully!");
+        
+        await loadContractInfo();
+    }
+    catch (error) {
+        console.error("Error minting NFT:", error);
+        alert("Failed to mint NFT. Please try again.");
+    }
+    finally {
+        mintBtnEl.disabled = false;
+    }
+}
 
 connectBtnEl.addEventListener("click", connectWallet);
 mintBtnEl.addEventListener("click", mintNFT);
